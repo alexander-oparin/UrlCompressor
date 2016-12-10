@@ -6,10 +6,10 @@ use app\models\Compressor;
 class m161210_025237_init extends Migration {
     public function up() {
         $set = Compressor::$set;
-        $size = strlen($set)-1;
+        $size = strlen($set);
         $i = 0;
-        while($i++ < $size) {
-            $ord = ord($set[$i]);
+        while($i < $size) {
+            $ord = ord($set[$i++]);
             $this->execute("CREATE TABLE url_{$ord} (
                             `short_url` CHAR(6) NOT NULL,
                             `long_url` TEXT NOT NULL,
